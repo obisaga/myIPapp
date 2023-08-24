@@ -1,6 +1,6 @@
-import { useState } from 'react'
 import './App.css'
 import FindIP from './components/FindIP'
+import Map from './components/Map'
 
 function App() {
   
@@ -9,7 +9,8 @@ function App() {
     <>
       
       
-      <FindIP />
+      {/* <FindIP /> */}
+      <Map />
     </>
   )
 }
