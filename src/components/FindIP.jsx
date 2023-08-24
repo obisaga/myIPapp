@@ -11,6 +11,7 @@ const FindIP = () => {
 
     const [ipAddress, setIpAddress] = useState("");
     const [location, setLocation] = useState("");
+    const [isp, setIsp] = useState("");
 
     useEffect(() => {
       const fetchIp = async () => {
@@ -19,6 +20,7 @@ const FindIP = () => {
           const data = await response.json();
           setIpAddress(data.ip);
           setLocation(data.location);
+          setIsp(data.isp);
         } catch (error) {
           console.error(error);
         }
@@ -34,7 +36,7 @@ const FindIP = () => {
 <p>My public IP s: {ipAddress}</p>
 <p>My IP location is: {location.region}, {location.country}</p>
 <p>My local timezone is: {location.timezone}</p>
-
+<p>My Internet Service Provider is: {isp}</p>
 </div>
     
   )
