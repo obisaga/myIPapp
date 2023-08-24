@@ -17,9 +17,13 @@ const FindMe = () => {
     const [location, setLocation] = useState("");
     const [isp, setIsp] = useState("");
     const [city, setCity] = useState("");
-    const [lat, setLat] = useState("");
-    const [lng, setLng] = useState("");
-    // const [position, setPosition] = useState([]);
+    const [lat, setLat] = useState(0);
+    const [lng, setLng] = useState(0);
+
+    const position = [`${lat}`, `${lng}`];
+
+    
+    // const [position, setPosition] = useState("");
 
     useEffect(() => {
       const fetchIp = async () => {
@@ -27,22 +31,31 @@ const FindMe = () => {
           const response = await fetch(url);
           const data = await response.json();
           
+          
           setIpAddress(data.ip);
           setLocation(data.location);
           setIsp(data.isp);
-          setCity(data.location.city)
-          setLat(data.location.lat)
-          setLng(data.location.lng)
-        } catch (error) {
+          setCity(data.location.city);
+          setLat(data.location.lat);
+          setLng(data.location.lng);
+          
+          
+
+        } 
+        catch (error) {
           console.error(error);
         }
+            
       };
+      
       fetchIp();
 
       
     }, []);
+    
+
     // setPosition([data.location.lat, data.location.lng])
-    const position = [`${lat}`, `${lng}`];
+    // const position = [`${lat}`, `${lng}`];
 
    
 
@@ -51,7 +64,7 @@ const FindMe = () => {
 <div>
 <h1>What Is My IP?</h1>
 <p>My public IP s: {ipAddress}</p>
-<p>My location is: {location.city}, {location.region}, {location.country}</p>
+<p>My location is: {city}, {location.region}, {location.country}</p>
 <p>My local timezone is: {location.timezone}</p>
 <p>My Internet Service Provider is: {isp}</p>
 
