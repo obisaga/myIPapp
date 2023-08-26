@@ -1,8 +1,8 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
-import { MapContainer, TileLayer, Marker} from 'react-leaflet'
-import "leaflet/dist/leaflet.css";
-import { DateTime } from "luxon";
+// import { MapContainer, TileLayer, Marker} from 'react-leaflet'
+// import "leaflet/dist/leaflet.css";
+// import { DateTime } from "luxon";
 
 
 
@@ -10,8 +10,8 @@ import { DateTime } from "luxon";
 
 const FindMe = () => {
  const key = import.meta.env.VITE_SOME_KEY;
- const url = `https://geo.ipify.org/api/v2/country?apiKey=${key}&ipAddress`
-//  const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress`
+//  const url = `https://geo.ipify.org/api/v2/country?apiKey=${key}&ipAddress`
+ const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress`
 
     const [ipAddress, setIpAddress] = useState("");
     const [location, setLocation] = useState("");
@@ -51,9 +51,9 @@ const FindMe = () => {
       
     }, []);
 
-    const flagUrl = `https://flagcdn.com/w320/${location.country}.png`
-    const flagShow = flagUrl.toLowerCase()
-    const dt = DateTime.now();
+    // const flagUrl = `https://flagcdn.com/w320/${location.country}.png`
+    // const flagShow = flagUrl.toLowerCase()
+    // const dt = DateTime.now();
 
   
 

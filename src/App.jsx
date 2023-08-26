@@ -2,13 +2,13 @@ import './App.css'
 import FindIP from './components/FindIP'
 
 
+
 function App() {
   
-
-
-  return (
+ return (
     <>
 
+  
    <FindIP />
 
     </>
