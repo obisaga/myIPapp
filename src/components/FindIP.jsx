@@ -17,7 +17,7 @@ const FindIP = () => {
 
  const key = import.meta.env.VITE_SOME_KEY;
 //  const url = `https://geo.ipify.org/api/v2/country?apiKey=${key}&ipAddress`
- const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress`
+ const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress`;
     
 
     const [ipAddress, setIpAddress] = useState("");
@@ -155,9 +155,3 @@ const FindIP = () => {
 
 export default FindIP
 
-
-
-// var txt = `${location.timezone}`;
-// var numb = txt.match(/\d/g);
-// numb = numb.join("");
-// console.log(numb);

@@ -70,3 +70,10 @@ export default Clock
     
     //   return () => clearInterval(interval);
     // }, []);
+
+    
+
+// var txt = `${location.timezone}`;
+// var numb = txt.match(/\d/g);
+// numb = numb.join("");
+// console.log(numb);
