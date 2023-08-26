@@ -3,6 +3,12 @@ import {useState, useEffect} from 'react';
 // import { MapContainer, TileLayer, Marker} from 'react-leaflet'
 import "leaflet/dist/leaflet.css";
 import { DateTime } from "luxon";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Accordion from 'react-bootstrap/Accordion'
+import { MapContainer, TileLayer, Marker} from 'react-leaflet'
+import "leaflet/dist/leaflet.css";
 
 
 
@@ -30,15 +36,12 @@ const FindIP = () => {
           const response = await fetch(url);
           const data = await response.json();
           
-          
           setIpAddress(data.ip);
           setLocation(data.location);
           setIsp(data.isp);
           setCity(data.location.city);
           setLat(data.location.lat);
           setLng(data.location.lng);
-          
-     
           
 
         } 
@@ -85,26 +88,82 @@ const FindIP = () => {
    
 
   return (
-
-<div>
-<h1>Location Finder</h1>
-<p>Your public IP is: {ipAddress}</p>
-<p>Your location is: {city}, {location.region}, {location.country}</p>
-<p>Your local time is: {showTime} (UTC{location.timezone}) </p>
-<p>Time now in GMT: {showGmt} </p>
-<p>Your Internet Service Provider is: {isp}</p>
-<div>
-<img src={flagShow} style={{ height: "10vh", width: "15vw" }}/>
-</div>
+    
+    <div>
+     
+      
+      <div>
+        <h1>Location Finder</h1>
+      </div>
 
 
-
-
-
-
-</div>
-
+      <div>
    
+
+
+
+
+      <Card style={{ width: '50rem' }}>
+      <Card.Img variant="top" src={flagShow} />
+      <Card.Body>
+     
+              
+
+              <Accordion>
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>
+          
+          
+        <Card.Title>{city}, {location.region}, {location.country}</Card.Title>          
+          
+          </Accordion.Header>
+        <Accordion.Body>
+           
+        <div>
+        {/* <MapContainer center={position} zoom={4} scrollWheelZoom={true} style={{ height: "40rem", width: "40rem" }}>
+        <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+        <Marker position={position}/>
+        </MapContainer> */}
+        </div>
+           
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
+
+
+
+              <Card.Text>
+                
+              </Card.Text>
+            </Card.Body>
+            <Card.Body>
+            <ListGroup className="list-group-flush">
+            
+            <Card.Title>Your public IP is: </Card.Title>
+              <ListGroup.Item>{ipAddress}</ListGroup.Item>
+            <br/>
+              <Card.Title>Your local time is:</Card.Title>
+              <ListGroup.Item>{showTime} (UTC{location.timezone})</ListGroup.Item>
+              <br/>
+              <Card.Title>Time now in GMT:</Card.Title>
+              <ListGroup.Item>{showGmt} (UTC+00:00)</ListGroup.Item>
+              <br/>
+              <Card.Title>Your Internet Service Provider is:</Card.Title>
+              <ListGroup.Item>{isp}</ListGroup.Item>
+            </ListGroup>
+            </Card.Body>
+      </Card>
+      </div>
+</div>
+
+
+
+
+
+
+
   )
 
 }
