@@ -11,12 +11,12 @@ import {useState, useEffect} from 'react';
 const FindMe = () => {
  const key = import.meta.env.VITE_SOME_KEY;
 //  const url = `https://geo.ipify.org/api/v2/country?apiKey=${key}&ipAddress`
- const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress`
+//  const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress`
+ const url = `https://geo.ipify.org/api/v1?apiKey=${key}`
 
     const [ipAddress, setIpAddress] = useState("");
     const [location, setLocation] = useState("");
     const [isp, setIsp] = useState("");
-    const [city, setCity] = useState("");
     const [lat, setLat] = useState(0);
     const [lng, setLng] = useState(0);
     const position = [`${lat}`, `${lng}`];
@@ -32,7 +32,6 @@ const FindMe = () => {
           setIpAddress(data.ip);
           setLocation(data.location);
           setIsp(data.isp);
-          setCity(data.location.city);
           setLat(data.location.lat);
           setLng(data.location.lng);
           

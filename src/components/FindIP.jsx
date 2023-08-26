@@ -7,8 +7,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Accordion from 'react-bootstrap/Accordion'
 import { MapContainer, TileLayer, Marker} from 'react-leaflet'
-import "leaflet/dist/leaflet.css";
-
+import '../index.css'
 
 
 
@@ -17,12 +16,13 @@ const FindIP = () => {
   const key = import.meta.env.VITE_SOME_KEY;
   const url = `https://geo.ipify.org/api/v1?apiKey=${key}`
   
+  
  
 
     const [ipAddress, setIpAddress] = useState("");
     const [location, setLocation] = useState("");
     const [isp, setIsp] = useState("");
-    const [city, setCity] = useState("");
+  
     const [lat, setLat] = useState(0);
     const [lng, setLng] = useState(0);
     const position = [`${lat}`, `${lng}`];
@@ -37,7 +37,6 @@ const FindIP = () => {
           
           setIpAddress(data.ip);
           setLocation(data.location);
-          setCity(data.location.city);
           setLat(data.location.lat);
           setLng(data.location.lng);
           setIsp(data.isp);
@@ -77,10 +76,10 @@ const FindIP = () => {
      
       
       <div>
-        <h1>Location Finder</h1>
+        <h1 className="title">Location Finder</h1>
       </div>
 
-<Card style={{ width: '50rem' }}>
+<Card className="cardstyle" style={{ width: '50rem' }}>
   <Card.Img variant="top" src={flagShow} />
     <Card.Body>
 
@@ -90,7 +89,7 @@ const FindIP = () => {
         <Accordion.Item eventKey="0">
             <Accordion.Header>
     
-              <Card.Title>{city}, {location.region}, {location.country}</Card.Title>          
+              <Card.Title>{location.city}, {location.region}, {location.country}</Card.Title>          
     
             </Accordion.Header>
             <Accordion.Body>
