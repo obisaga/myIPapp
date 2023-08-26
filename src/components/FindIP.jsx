@@ -17,8 +17,8 @@ const FindIP = () => {
 
 
  const key = import.meta.env.VITE_SOME_KEY;
- const url = `https://geo.ipify.org/api/v2/country?apiKey=${key}&ipAddress`
-//  const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress`
+//  const url = `https://geo.ipify.org/api/v2/country?apiKey=${key}&ipAddress`
+ const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress`
     
 
     const [ipAddress, setIpAddress] = useState("");
@@ -120,12 +120,12 @@ const FindIP = () => {
         <Accordion.Body>
            
         <div>
-        {/* <MapContainer center={position} zoom={4} scrollWheelZoom={true} style={{ height: "40rem", width: "40rem" }}>
+        <MapContainer center={position} zoom={4} scrollWheelZoom={true} style={{ height: "40rem", width: "40rem" }}>
         <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
         <Marker position={position}/>
-        </MapContainer> */}
+        </MapContainer>
         </div>
            
         </Accordion.Body>

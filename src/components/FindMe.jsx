@@ -71,13 +71,7 @@ const FindMe = () => {
 <img src={flagShow} style={{ height: "10vh", width: "15vw" }}/>
 </div>
 
-<MapContainer center={position} zoom={3} scrollWheelZoom={true} style={{ height: "50vh", width: "50vw" }}>
-    <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-        <Marker position={position}/>
-    </MapContainer>
+
 
 
 
