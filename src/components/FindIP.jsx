@@ -14,11 +14,10 @@ import "leaflet/dist/leaflet.css";
 
 const FindIP = () => {
 
-
- const key = import.meta.env.VITE_SOME_KEY;
-//  const url = `https://geo.ipify.org/api/v2/country?apiKey=${key}&ipAddress`
-//  const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress`;
-    
+  const key = import.meta.env.VITE_SOME_KEY;
+  const url = `https://geo.ipify.org/api/v1?apiKey=${key}`
+  
+ 
 
     const [ipAddress, setIpAddress] = useState("");
     const [location, setLocation] = useState("");
@@ -30,6 +29,7 @@ const FindIP = () => {
 
     
     useEffect(() => {
+  
       const fetchIp = async () => {
         try {
           const response = await fetch(url);
@@ -37,12 +37,11 @@ const FindIP = () => {
           
           setIpAddress(data.ip);
           setLocation(data.location);
-          setIsp(data.isp);
           setCity(data.location.city);
           setLat(data.location.lat);
           setLng(data.location.lng);
-          
-
+          setIsp(data.isp);
+        
         } 
         catch (error) {
           console.error(error);
@@ -50,7 +49,7 @@ const FindIP = () => {
             
       };
       
-      fetchIp();    
+      fetchIp()
     }, []);
 
 
