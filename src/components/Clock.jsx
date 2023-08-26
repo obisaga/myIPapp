@@ -56,3 +56,17 @@ export default Clock
 // </div>
 
 // </div>
+
+
+    // const [time, setTime] = useState(new Date().toLocaleTimeString());
+    
+    // useEffect(() => {
+      
+    //   const interval = setInterval(() => {
+    //     let newTime = new Date().toLocaleTimeString() + " " + new Date().toLocaleDateString();
+    //     setTime((prev) => newTime);
+
+    //   }, 1000);
+    
+    //   return () => clearInterval(interval);
+    // }, []);

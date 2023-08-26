@@ -1,6 +1,5 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
-// import { MapContainer, TileLayer, Marker} from 'react-leaflet'
 import "leaflet/dist/leaflet.css";
 import { DateTime } from "luxon";
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -56,21 +55,7 @@ const FindIP = () => {
 
 
 
-   
-
-    // const [time, setTime] = useState(new Date().toLocaleTimeString());
-    
-    // useEffect(() => {
-      
-    //   const interval = setInterval(() => {
-    //     let newTime = new Date().toLocaleTimeString() + " " + new Date().toLocaleDateString();
-    //     setTime((prev) => newTime);
-
-    //   }, 1000);
-    
-    //   return () => clearInterval(interval);
-    // }, []);
-
+  
     
     const locTime = DateTime.now();
     const showTime = locTime.toLocaleString(DateTime.DATETIME_MED);
