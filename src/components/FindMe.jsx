@@ -65,19 +65,19 @@ const FindMe = () => {
 <h1>Location Finder</h1>
 <p>Your public IP is: {ipAddress}</p>
 <p>Your location is: {city}, {location.region}, {location.country}</p>
-<p>Your local time is: {dt}, {location.timezone} </p>
+<p>Your local time is: {location.timezone} </p>
 <p>Your Internet Service Provider is: {isp}</p>
 <div>
 <img src={flagShow} style={{ height: "10vh", width: "15vw" }}/>
 </div>
 
-{/* <MapContainer center={position} zoom={3} scrollWheelZoom={true} style={{ height: "50vh", width: "50vw" }}>
+<MapContainer center={position} zoom={3} scrollWheelZoom={true} style={{ height: "50vh", width: "50vw" }}>
     <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
         <Marker position={position}/>
-    </MapContainer> */}
+    </MapContainer>
 
 
 
