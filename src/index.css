@@ -5,7 +5,6 @@
 
   color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: black;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,7 +15,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #5b6069;
   text-decoration: inherit;
 }
 a:hover {
@@ -24,7 +23,7 @@ a:hover {
 }
 
 body {
-  background-color: #1a1a1a;
+  background-color: gainsboro;
   margin: 0;
   display: flex;
   place-items: center;
@@ -36,6 +35,7 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+
 
 button {
   border-radius: 8px;
@@ -68,11 +68,42 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
+.accordion-item{
+  color:blueviolet;
+}
 .cardstyle {
-  background-color:darkslategray;
+  border-color:dimgray;
+  border-width: 0.2rem;
+  background-color:rgb(255, 255, 255);
+}
+
+.imgstyle{
+  display: flex;
+  align-self: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .title {
-  color: #535bf2;
+  color: #5b6069;
+  padding-bottom: 2rem;
+}
+
+
+.locationtext {
+  display: flex;
+  justify-self: center;
+  text-align: center;
+  font-size: 2rem;
+
+
+}
+
+.cardtitle {
+  color:#5b6069;
+  font-size: 2rem;
+}
+
+.list-group-flush {
+  font-size: 25px;
 }

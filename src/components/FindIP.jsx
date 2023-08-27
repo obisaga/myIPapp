@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Accordion from 'react-bootstrap/Accordion'
-import { MapContainer, TileLayer, Marker} from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet'
 import '../index.css'
 
 
@@ -25,7 +25,7 @@ const FindIP = () => {
   
     const [lat, setLat] = useState(0);
     const [lng, setLng] = useState(0);
-    const position = [`${lat}`, `${lng}`];
+    const position = [lat, lng];
 
     
     useEffect(() => {
@@ -53,14 +53,26 @@ const FindIP = () => {
 
 
 
-  
+    let locTime = DateTime.now();
+    let showTime = locTime.toLocaleString(DateTime.DATETIME_MED);
+    let gmt = DateTime.now().setZone("Etc/GMT-0");
+    let showGmt= gmt.toLocaleString(DateTime.DATETIME_MED);
     
-    const locTime = DateTime.now();
-    const showTime = locTime.toLocaleString(DateTime.DATETIME_MED);
-    const gmt = DateTime.now().setZone("Etc/GMT-0");
-    const showGmt= gmt.toLocaleString(DateTime.DATETIME_MED);
+
+    // const [time, setTime] = useState(new showTime);
     
-  
+    // useEffect(() => {
+      
+    //   const interval = setInterval(() => {
+    //     let newTime = new showTime;
+    //     setTime((prev) => newTime);
+    //     console.log(newTime)
+
+    //   }, 1000);
+    
+    //   return () => clearInterval(interval);
+    // }, []);
+    
 
 
     const flagUrl = `https://flagcdn.com/w320/${location.country}.png`
@@ -79,34 +91,41 @@ const FindIP = () => {
         <h1 className="title">Location Finder</h1>
       </div>
 
-<Card className="cardstyle" style={{ width: '50rem' }}>
-  <Card.Img variant="top" src={flagShow} />
+<Card className="cardstyle" style={{ width: '70rem' }}>
+  <Card.Img className="imgstyle" variant="top" src={flagShow} style={{ width: '50rem' }}/>
     <Card.Body>
 
         
 
       <Accordion>
         <Accordion.Item eventKey="0">
-            <Accordion.Header>
+            <Accordion.Header className="accoHead">
     
-              <Card.Title>{location.city}, {location.region}, {location.country}</Card.Title>          
+              <Card.Title className="locationtext">
+                <p>{location.city}, {location.region}, {location.country}</p></Card.Title>          
     
             </Accordion.Header>
             <Accordion.Body>
               <div>
-                <MapContainer center={position} zoom={4} scrollWheelZoom={true} style={{ height: "40rem", width: "40rem" }}>
-                <TileLayer
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
-                <Marker position={position}/>
+         
+                <MapContainer center={position} zoom={4} scrollWheelZoom={true} style={{ height: "40rem", width: "60rem" }}>
+                  <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  <Marker position={position}>
+                    <Popup>
+                      You are here!
+                    </Popup>
+                  </Marker>
                 </MapContainer>
+
               </div>
      
             </Accordion.Body>
           </Accordion.Item>
       </Accordion>
         <Card.Text>
-          nothing
         </Card.Text>
   </Card.Body>
 
@@ -115,16 +134,16 @@ const FindIP = () => {
       <Card.Body>
           <ListGroup className="list-group-flush">
           
-            <Card.Title>Your public IP is: </Card.Title>
+            <Card.Title className="cardtitle">Your public IP is: </Card.Title>
             <ListGroup.Item>{ipAddress}</ListGroup.Item>
             <br/>
-            <Card.Title>Your local time is:</Card.Title>
+            <Card.Title className="cardtitle">Your local time is:</Card.Title>
             <ListGroup.Item>{showTime} (UTC{location.timezone})</ListGroup.Item>
             <br/>
-            <Card.Title>Time now in GMT:</Card.Title>
+            <Card.Title className="cardtitle">Time now in GMT:</Card.Title>
             <ListGroup.Item>{showGmt} (UTC+00:00)</ListGroup.Item>
             <br/>
-            <Card.Title>Your Internet Service Provider is:</Card.Title>
+            <Card.Title className="cardtitle">Your Internet Service Provider is:</Card.Title>
             <ListGroup.Item>{isp}</ListGroup.Item>
           </ListGroup>
       </Card.Body>
