@@ -13,7 +13,7 @@ import '../index.css'
 
 const FindIP = () => {
 
-  const key = import.meta.env.VITE_SOME_KEY;
+  const key = VITE_SOME_KEY;
   const url = `https://geo.ipify.org/api/v1?apiKey=${key}`
   
   
