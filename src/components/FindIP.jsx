@@ -79,7 +79,7 @@ const FindIP = () => {
     const flagShow = flagUrl.toLowerCase()
 
    
-
+console.log(position)
    
 
   return (
@@ -96,6 +96,20 @@ const FindIP = () => {
     <Card.Body>
 
         
+    {lat !== 0 && lng !== 0 ? (
+<>
+        <MapContainer center={[lat, lng]} zoom={4} scrollWheelZoom={true} style={{ height: "40rem", width: "60rem" }}>
+                  <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  <Marker position={[lat, lng]}>
+                    <Popup>
+                      You are here!
+                    </Popup>
+                  </Marker>
+                </MapContainer>
+
 
       <Accordion>
         <Accordion.Item eventKey="0">
@@ -107,24 +121,17 @@ const FindIP = () => {
             </Accordion.Header>
             <Accordion.Body>
               <div>
-         
-                <MapContainer center={position} zoom={4} scrollWheelZoom={true} style={{ height: "40rem", width: "60rem" }}>
-                  <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  <Marker position={position}>
-                    <Popup>
-                      You are here!
-                    </Popup>
-                  </Marker>
-                </MapContainer>
+                  
+           
+                
 
               </div>
      
             </Accordion.Body>
           </Accordion.Item>
       </Accordion>
+      </>
+) : null}
         <Card.Text>
         </Card.Text>
   </Card.Body>
