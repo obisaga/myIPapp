@@ -1,6 +1,5 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
-import "leaflet/dist/leaflet.css";
 import { DateTime } from "luxon";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Card from 'react-bootstrap/Card';
@@ -8,7 +7,6 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Accordion from 'react-bootstrap/Accordion'
 import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet'
 import '../index.css'
-
 
 
 const FindIP = () => {
